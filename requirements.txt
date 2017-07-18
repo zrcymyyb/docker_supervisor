@@ -1,0 +1,5 @@
+supervisor
+#pika
+#redis
+#wechatpy
+
