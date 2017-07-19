@@ -7,6 +7,7 @@ RUN set -x; \
 		pip install cryptography \
 	 && pip install wechatpy \
   	 && pip install redis \
+  	 && pip install suds \
 	 && pip install pika
 
 COPY ./requirements.txt /requirements.txt
