@@ -1,7 +1,7 @@
 FROM python:2.7
 USER root
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends build-essential libssl-dev libffi-dev python-dev
+RUN apt-get install -y --no-install-recommends build-essential libssl-dev libffi-dev python-dev cron
 
 RUN set -x; \
 		pip install cryptography \
@@ -10,7 +10,6 @@ RUN set -x; \
   	 && pip install suds \
 	 && pip install pika \
 	 && pip install celery \
-	 && apt-get install cron \
 	 && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 COPY ./requirements.txt /requirements.txt
