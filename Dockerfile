@@ -8,7 +8,10 @@ RUN set -x; \
 	 && pip install wechatpy \
   	 && pip install redis \
   	 && pip install suds \
-	 && pip install pika
+	 && pip install pika \
+	 && pip install celery \
+	 && apt-get install cron \
+	 && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 COPY ./requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
