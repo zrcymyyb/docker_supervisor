@@ -15,6 +15,7 @@ RUN set -x; \
 
 COPY ./requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
+RUN /etc/init.d/cron restart
 #ADD ./supervisord.conf /etc/supervisor/supervisord.conf
 COPY supervisord.conf /etc/supervisord.conf
 RUN mkdir -p /etc/supervisor/conf.d \
