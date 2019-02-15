@@ -16,10 +16,9 @@ COPY ./requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
 #ADD ./supervisord.conf /etc/supervisor/supervisord.conf
 COPY supervisord.conf /etc/supervisord.conf
+COPY ./start.sh /etc/start.sh
 RUN mkdir -p /etc/supervisor/conf.d \
              /var/log/supervisor
 VOLUME ["/etc/supervisor/conf.d","/etc/supervisor/apps","/var/log/supervisor"]
 EXPOSE 9001 
-#CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
-ENTRYPOINT /etc/init.d/cron restart
-CMD ["supervisord","-c","/etc/supervisord.conf"]
+CMD ["sh","/etc/start.sh"]

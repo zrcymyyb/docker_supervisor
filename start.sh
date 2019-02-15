@@ -1,0 +1,1 @@
+/etc/init.d/cron restart && supervisord -c /etc/supervisord.conf
